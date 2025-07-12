@@ -1,4 +1,4 @@
-# Exploring the Truth with Dialogue: Dual Large Language Model Interaction Cooperation and Multi-view Semantic Fusion Network for Fake News Detection
+# Exploring  Truth with Dialogue: Dual Large Language Model Interaction Cooperation and Multi-view Semantic Fusion Network for Fake News Detection
 
 ## Overview
 This project is designed to classify the authenticity of news using a BERT-based model. It integrates news content, analysis information, and comments to make predictions. This README provides instructions on how to reproduce the code's execution.
