@@ -15,7 +15,7 @@ class SimilarityAttentionFusionLayer(nn.Module):
 
         
         similarity_weights = torch.cat((content_analyze_similarity, content_comments_similarity, analyze_comments_similarity), dim=1)
-        similarity_weights = F.softmax(similarity_weights, dim=1)  # Softmax确保权重和为1
+        similarity_weights = F.softmax(similarity_weights, dim=1)
 
        
         weighted_content = similarity_weights[:, 0].unsqueeze(1) * content_cls_token
@@ -33,7 +33,7 @@ class AttentionFusionLayer(nn.Module):
         self.fusion = nn.Linear(768 * 3, 768)
 
        
-        self.attention_weights = nn.Linear(768*3, 3)  # 生成三个权重
+        self.attention_weights = nn.Linear(768*3, 3)
 
     def forward(self, content_cls_token, analyze_cls_token, comments_cls_token):
        
@@ -41,7 +41,7 @@ class AttentionFusionLayer(nn.Module):
 
         
         attention_scores = self.attention_weights(combined_features)  # [batch_size, 3]
-        attention_weights = F.softmax(attention_scores, dim=1)  # Softmax归一化，确保权重和为1
+        attention_weights = F.softmax(attention_scores, dim=1)
 
        
         weighted_content = attention_weights[:, 0].unsqueeze(1) * content_cls_token
