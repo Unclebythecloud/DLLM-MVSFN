@@ -22,19 +22,19 @@ pip install torch transformers pandas scikit-learn tqdm
 ### 1. Configure File Paths
 Open the `config.py` file and replace the placeholder paths with the actual paths to your data files and the pre-trained BERT model:
 ```python
-# 数据集路径
+
 TRAIN_JSON_PATH = r"path/to/gossipcop_train_set.json"
 DEV_JSON_PATH = r"path/to/analyze_val_ch.json"
 TEST_JSON_PATH = r"path/to/weibo21_test_newsummary.json"
 
-# 预训练BERT模型路径
 BERT_PATH = "path/to/chinese_roberta_wwm_ext"
 ```
 
 ### 2. Prepare the Data
+Before starting, the corresponding content for the analyses section should be obtained through DLLM conversations.
 Ensure that your data files (`gossipcop_train_set.json`, `analyze_val_ch.json`, and `weibo21_test_newsummary.json`) are in the correct JSON format. Each JSON object should contain the following fields:
 - `text`: The news content.
-- `analyze`: The analysis information.
+- `analyses`: The analysis information.
 - `comments`: A list of comments.
 - `label`: The label indicating the authenticity of the news (0 for real, 1 for fake).
 
